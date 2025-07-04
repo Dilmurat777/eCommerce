@@ -1,12 +1,19 @@
-
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CardPage from './page/CardPage';
+import ProductDetails from './page/ProductDetails';
+import Header from './components/Header';
+import Home from './page/Home';
 
 function App() {
   return (
-    <div>
-        <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="card" element={<CardPage />} />
+        <Route path="product" element={<ProductDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
