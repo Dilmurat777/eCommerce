@@ -2,8 +2,9 @@ import { Link } from "react-router-dom"
 
 
 function ProductCard({ product }) {
+	
   return (
-	<Link>
+	  <Link to={`/product/${product.id}`}>
 		  <div className="shadow-lg rounded-md cursor-pointer hover:shadow-2xl transition-shadow duration-150">
 			  <img className="w-full h-64 object-cover rounded-md" src={product.image} />
 			  <div className="bg-gray-50 p-4">
