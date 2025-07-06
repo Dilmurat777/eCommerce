@@ -93,7 +93,7 @@ const products = [
     price: 64999.99,
     category: "Home Appliances",
     description: "Беспроводной пылесос с лазерным обнаружением пыли и автоматической адаптацией мощности.",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=500&fit=crop"
+    image: "https://i.simpalsmedia.com/thumbor/500x0/i.simpalsmedia.com/marketplace/products/original/878b5195855bc5ad4c441d47f0899051.jpg"
   },
   {
     id: 13,
@@ -189,7 +189,7 @@ const products = [
     price: 89999.99,
     category: "Audio",
     description: "Премиальная звуковая панель с поддержкой Dolby Atmos и 11 встроенными динамиками.",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=500&fit=crop"
+    image: "https://plus.unsplash.com/premium_photo-1677159499898-b061fb5bd2d7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U29ub3MlMjBBcmMlMjBTb3VuZGJhciUyMDUwMHB4fGVufDB8fDB8fHww"
   },
   {
     id: 25,
@@ -221,7 +221,7 @@ const products = [
     price: 54999.99,
     category: "VR",
     description: "VR-гарнитура смешанной реальности с процессором Snapdragon XR2 Gen 2 и разрешением 2064x2208.",
-    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc696?w=500&h=500&fit=crop"
+    image: "https://www.kivano.kg/images/product/134727/171082994263056_full.png"
   },
   {
     id: 29,
