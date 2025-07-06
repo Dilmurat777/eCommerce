@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 import { ShoppingCart, User } from 'lucide-react';
 import { useState } from 'react';
-import Logo from './../assets/logo.png'
+
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearchTerm } from '../features/products/ProductSlice';
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+  const searchTerm = useSelector((state) => state.product.searchTerm);
   const handelUser = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
   return (
     <header className="bg-white shadow-md">
       <>
@@ -27,7 +31,12 @@ function Header() {
                 <Link to="/">Contact</Link>
               </li>
             </div>
-            <div className={`${isOpen ? 'flex flex-col absolute right-0 top-12 z-10 bg-zinc-50 p-4 gap-4' : 'hidden'} `}>
+            <div
+              className={`${
+                isOpen
+                  ? 'flex flex-col absolute right-0 top-12 z-10 bg-zinc-50 p-4 gap-4'
+                  : 'hidden'
+              } `}>
               <li>
                 <Link to="/">Sing in</Link>
               </li>
@@ -35,21 +44,30 @@ function Header() {
                 <Link to="/">My Account</Link>
               </li>
             </div>
-            <User size={40} className="bg-gray-200 p-2 text-black rounded cursor-pointer" onClick={handelUser} />
+            <User
+              size={40}
+              className="bg-gray-200 p-2 text-black rounded cursor-pointer"
+              onClick={handelUser}
+            />
           </ul>
         </div>
-        <nav className='flex justify-between items-center container mx-auto md:py-6 py-8px-2'>
-          <div className='flex items-center'>
-            <Link to='/' className='bg-gray-700 py-2 px-4 rounded'>
-              {/* <img src={ Logo} alt='' className='h-[40px] w-[70px]' /> */}
-              <h4 className='text-white'>audiophile</h4>
+        <nav className="flex justify-between items-center container mx-auto md:py-6 py-8px-2">
+          <div className="flex items-center">
+            <Link to="/" className="bg-gray-700 py-2 px-4 rounded">
+              <h4 className="text-white">audiophile</h4>
             </Link>
           </div>
-          <form className='w-1/2 sm:block hidden'>
-            <input type="text" placeholder='Search Product' className='bg-zinc-100 rounded border border-zinc-200 focus:outline py-3 px-3 w-full' />
+          <form className="w-1/2 sm:block hidden">
+            <input
+              type="text"
+              placeholder="Search Product"
+              className="bg-zinc-100 rounded border border-zinc-200 focus:outline py-3 px-3 w-full"
+              value={searchTerm}
+              onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+            />
           </form>
           <Link>
-            <ShoppingCart size={54} className='cursor-pointer bg-gray-100 px-3 py-2 rounded-full'/>
+            <ShoppingCart size={54} className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full" />
           </Link>
         </nav>
       </>
