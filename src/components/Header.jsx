@@ -9,6 +9,9 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const searchTerm = useSelector((state) => state.product.searchTerm);
+
+  const cartItem = useSelector((state) => state.cart.items);
+  const itemCount = cartItem.reduce((total, item) => total + item.quantity, 0);
   const handelUser = () => {
     setIsOpen(!isOpen);
   };
@@ -66,9 +69,19 @@ function Header() {
               onChange={(e) => dispatch(setSearchTerm(e.target.value))}
             />
           </form>
-          <Link>
-            <ShoppingCart size={54} className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full" />
-          </Link>
+          <div className="relative">
+            <Link to="/cart">
+              <ShoppingCart
+                size={54}
+                className="cursor-pointer bg-gray-100 px-3 py-2 rounded-full"
+              />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 items-center justify-center flex">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+          </div>
         </nav>
       </>
     </header>
